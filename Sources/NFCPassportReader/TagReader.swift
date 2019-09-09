@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreNFC
+
 @available(iOS 13, *)
 public enum PassportTagError : Error {
     case responseError( UInt8, UInt8 )
