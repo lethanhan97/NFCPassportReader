@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "NFCPassportReader"
-  spec.version      = "1.0.11"
+  spec.version      = "1.0.13"
   spec.summary      = "This package handles reading an NFC Enabled passport using iOS 13 CoreNFC APIS"
 
   spec.homepage     = "https://github.com/franek-scandit/NFCPassportReader"
@@ -19,4 +19,10 @@ Pod::Spec.new do |spec|
   spec.dependency "OpenSSL-Universal/Framework"
   spec.xcconfig          = { 'OTHER_LDFLAGS' => '-weak_framework CryptoKit -weak_framework CoreNFC',
                              'ENABLE_BITCODE' => '"NO' }
+
+  spec.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+  }
+  spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+
 end
